@@ -1,0 +1,244 @@
+"我的 _vsvimrc
+
+"還不錯的老外 config
+"https://github.com/keithn/vsvimguide
+
+" I don't know it now
+set ai
+
+
+set clipboard=unnamed
+set ignorecase
+
+" map jj to Esc
+:inoremap jj <esc>
+:nnoremap <c-j> <c-w>j
+:nnoremap <c-k> <c-w>k
+:nnoremap <c-l> <c-w>l
+:nnoremap <c-h> <c-w>h
+
+"居中显示查找结果
+:nnoremap n nzz
+:nnoremap N Nzz
+:nnoremap * *zz
+:nnoremap # #zz
+"</span>去定义
+:nnoremap gd <C-]>zz
+
+"gq->== 整理代码格式
+:nnoremap gq ==
+:vnoremap gq ==
+
+"format code
+:nnoremap == :vsc Edit.FormatDocument<CR>
+
+nnoremap gcc :vsc Edit.ToggleLineComment<CR>
+vnoremap gc :vsc Edit.ToggleComment<CR>
+
+
+"set leader
+:let mapleader = ","
+
+"<CR> => Enter 的意思
+
+"first example
+"nnoremap <Leader>a :echo "Hello world"<CR>
+
+"editor.action.rename
+"使用 Refactor 功能
+nmap <Leader>rv :vsc Refactor.Rename<CR>
+
+"大範圍搜尋
+"workbench.action.findInFiles
+nmap <Leader>qq :vsc Edit.FindinFiles<CR>
+
+"目前文件搜尋
+"actions.find
+nmap <Leader>ss :vsc Edit.Find<CR>
+"選取的時候區域找
+vmap <Leader>ss :vsc Edit.Find<CR>
+
+"複製相對路徑
+"workbench.action.files.copyPathOfActiveFile
+
+"
+"copyRelativeFilePath
+
+"
+"workbench.action.togglePanel
+
+
+"like vscode command
+"workbench.action.showCommands
+nmap <Leader>xm :vsc View.CommandWindow<CR>
+
+"切換註解
+"editor.action.commentLine
+nmap <Leader>ci :vsc Edit.ToggleComment<CR>
+vmap <Leader>ci :vsc Edit.ToggleComment<CR>
+
+"擴展選取
+"editor.action.smartSelect.expand
+nmap <Leader>xx :vsc Edit.ExpandSelection<CR>
+vmap <Leader>xx :vsc Edit.ExpandSelection<CR>
+
+"反擴展選取
+"editor.action.smartSelect.shrink
+nmap <Leader>zz :vsc Edit.ContractSelection<CR>
+vmap <Leader>zz :vsc Edit.ContractSelection<CR>
+
+"最近開啟的檔案
+"workbench.action.openRecent
+nmap <Leader>zz :vsc Edit.GoToRecentFile<CR>
+
+
+"開窗到右側 ctrl + w w 切換窗
+":vsplit
+"workbench.action.splitEditorRight
+
+"split
+nmap <Leader>x1 :vsplit <CR>
+
+"close
+nmap <Leader>x0 :q <CR>
+
+
+"切換到方案總管
+nmap ,e :vsc View.SolutionExplorer<CR>
+
+"ctrl + f6
+"切回 editor
+
+"gh
+map <Leader>gh :vsc Edit.QuickInfo<CR>
+
+"在方案總管開啟資料夾
+"nmap ,of :vsc ProjectandSolutionContextMenus.Project.OpenFolderinFileExplorer<CR>
+
+
+"gb 設定相同字選擇功能
+map <Leader>gb :vsc Edit.InsertNextMatchingCaret<CR>
+
+"https://github.com/VsVim/VsVim/issues/1474
+" Surround simulating bindings
+nnoremap s) ciw(<C-r>")<Esc>
+nnoremap s] ciw[<C-r>"]<Esc>
+nnoremap s} ciw{<C-r>"}<Esc>
+nnoremap s> ciw<lt><C-r>"><Esc>
+nnoremap s" ciw"<C-r>""<Esc>
+nnoremap s' ciw'<C-r>"'<Esc>
+nnoremap sw) ciW(<C-r>")<Esc>
+nnoremap sw] ciW[<C-r>"]<Esc>
+nnoremap sw} ciW{<C-r>"}<Esc>
+nnoremap sw> ciW<lt><C-r>"><Esc>
+nnoremap sw" ciW"<C-r>""<Esc>
+nnoremap sw' ciW'<C-r>"'<Esc>
+
+" Surround delete bindings
+nnoremap ds) vi(dvhp
+nnoremap ds] vi[dvhp
+nnoremap ds} vi{dvhp
+nnoremap ds> vi<dvhp
+nnoremap ds" vi"dvhp
+nnoremap ds' vi'dvhp
+
+" Surround change bindings
+nnoremap cs"' vi"oh<Esc>msvi"l<Esc>cl'<Esc>`scl'<Esc>
+nnoremap cs'" vi'oh<Esc>msvi'l<Esc>cl"<Esc>`scl"<Esc>
+
+" Surround visual selected text
+vnoremap S" c"<C-r>""<Esc>
+vnoremap S' c"<C-r>"'<Esc>
+vnoremap S) c(<C-r>")<Esc>
+vnoremap S] c[<C-r>"]<Esc>
+vnoremap S} c{<C-r>"}<Esc>
+vnoremap S> c<lt><C-r>"><Esc>
+vnoremap S* c/*<C-r>"*/<Esc>
+"vnoremap St c<lt>div><CR><C-r>"<Esc>
+" Surround in div tag and edit tag
+vnoremap St c<lt>div><CR><C-r>"<Esc>`<lt>lcw
+
+
+" template
+map <LEADER>. <ESC> /<++><CR>:nohlsearch<CR>c4l
+
+" add var x = 
+map <LEADER>vx ^ivar x = <ESC> bbciw
+
+"
+map <LEADER>gp ^ivar x = new YourObject(); var t = x.GetType(); foreach (var prop in t.GetProperties()) Console.WriteLine( $"x.{prop.Name} = " ); <ESC>
+
+"Json To Chsarp
+map <LEADER>c2j :vsc Edit.PasteJSONAsClasses<CR>
+
+"Add New Class
+map <Leader>nc :vsc Project.AddClass<CR>
+
+"SurroundWith
+map <Leader>sr :vsc Edit.SurroundWith<CR>
+
+"ListMembers
+map <Leader>lm :vsc ListMembers<CR>
+
+"so
+nmap <Leader>so :so ~/_vsvimrc<CR>
+
+"to string
+"nmap <Leader>2s viwxistring<Esc>
+
+"to string use extension
+nmap <Leader>2s viw:vsc Tools.ToString<CR>
+
+"to int use extension
+nmap <Leader>2i viw:vsc Tools.ToInt<CR>
+
+"to bool
+"nmap <Leader>2b viwxibool<Esc>
+
+"to bool use extension
+nmap <Leader>2b viw:vsc Tools.ToBool<CR>
+
+"to float
+"nmap <Leader>2f viwxifloat<Esc>
+
+"to decimal
+"nmap <Leader>2d viwxidecimal<Esc>
+
+"to var
+"nmap <Leader>2v viwxivar<Esc>
+
+"to var use extension
+nmap <Leader>2v viw:vsc Tools.ToVar<CR>
+
+"to double use extension
+nmap <Leader>2f viw:vsc Tools.ToDouble<CR>
+
+"toogle true
+"nmap <Leader>tt viwxitrue<Esc>
+
+"toogle false
+"nmap <Leader>tf viwxifalse<Esc>
+
+"toogle use extension
+nmap <Leader>tt viw:vsc Tools.Toggle<CR>
+
+"to mvc url
+nmap <Leader>2u vi'xi@Url.Content("<C-r>"")
+
+"go to file 必須先選中路徑
+map <Leader>gf :vsc Tools.GoToFile<CR>
+
+"select current method
+map <Leader>vim :vsc Tools.SelectCurrentMethod<CR>
+
+"Move To Method Begin
+map <Leader>gmb :vsc Tools.MoveToMethodBegin<CR>
+
+"Move To Method End
+map <Leader>gme :vsc Tools.MoveToMethodEnd<CR>
+
+"postfix completion
+map <LEADER>. :vsc Tools.PostFixVar<CR>
+
+" 設定尖括號
+" set mps+=<:>
