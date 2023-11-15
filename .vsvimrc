@@ -32,12 +32,25 @@ set ignorecase
 "format code
 :nnoremap == :vsc Edit.FormatDocument<CR>
 
-nnoremap gcc :vsc Edit.ToggleLineComment<CR>
+nnoremap gc :vsc Edit.ToggleLineComment<CR>
 vnoremap gc :vsc Edit.ToggleComment<CR>
+
+" Type %% in command-line mode to refer to the directory of the current file
+" cnoremap %% <C-R>=expand("%:h") . "/"<CR>
 
 
 "set leader
 :let mapleader = ","
+
+" 'cd' towards the directory in which the current file is edited
+nnoremap <leader>cd :cd %:h<CR>
+
+" 'cd' towards the directory in which the current file is edited
+" but only change the path for the current window
+" nnoremap <leader>cd :lcd %:h<CR>
+
+" Open files located in the same dir in with the current file is edited
+" nnoremap <leader>ew :e <C-R>=expand("%:.:h") . "/"<CR>
 
 "<CR> => Enter 的意思
 
