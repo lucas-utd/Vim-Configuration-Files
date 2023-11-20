@@ -1,17 +1,34 @@
-"我的 _vsvimrc
+" _vsvimrc
 
-"還不錯的老外 config
+" ery good reference config
 "https://github.com/keithn/vsvimguide
 
-" I don't know it now
-set ai
+" Don't try to be vi compatible
+set nocompatible
 
+" turn on syntax highlighting
+syntax on
 
-set clipboard=unnamed
-set ignorecase
+" set 4 spaces globally & make indenting sane.
+" ... Note that 'set paste' destroys indentation.
+"
+" we could also set `tabstop`, but let's
+" keep tabs 'natural'.
+set softtabstop=4 shiftwidth=4 expandtab autoindent
+
+" make vim use the system clipboard
+set clipboard^=unnamed,unnamedplus
+
+" utf-8!
+set encoding=utf-8 fileencoding=utf-8
+
+" make searching easy, and case insensitive:
+set ignorecase smartcase incsearch hlsearch
 
 " map jj to Esc
 :inoremap jj <esc>
+
+" map to jump the different windows.
 :nnoremap <c-j> <c-w>j
 :nnoremap <c-k> <c-w>k
 :nnoremap <c-l> <c-w>l
@@ -22,6 +39,7 @@ set ignorecase
 :nnoremap N Nzz
 :nnoremap * *zz
 :nnoremap # #zz
+
 "</span>去定义
 :nnoremap gd <C-]>zz
 
@@ -40,7 +58,7 @@ vnoremap gc :vsc Edit.ToggleComment<CR>
 
 
 "set leader
-:let mapleader = ","
+let mapleader = ","
 
 " 'cd' towards the directory in which the current file is edited
 nnoremap <leader>cd :cd %:h<CR>
@@ -68,6 +86,7 @@ nmap <Leader>qq :vsc Edit.FindinFiles<CR>
 "目前文件搜尋
 "actions.find
 nmap <Leader>ss :vsc Edit.Find<CR>
+
 "選取的時候區域找
 vmap <Leader>ss :vsc Edit.Find<CR>
 
