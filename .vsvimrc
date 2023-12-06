@@ -4,10 +4,10 @@
 "https://github.com/keithn/vsvimguide
 
 " Don't try to be vi compatible
-set nocompatible
+" set nocompatible
 
 " turn on syntax highlighting
-syntax on
+" syntax on
 
 " set 4 spaces globally & make indenting sane.
 " ... Note that 'set paste' destroys indentation.
@@ -17,10 +17,18 @@ syntax on
 set softtabstop=4 shiftwidth=4 expandtab autoindent
 
 " make vim use the system clipboard
-set clipboard^=unnamed,unnamedplus
+set clipboard=unnamed
+" set clipboard+=unnamedplus
+
+" Paste from a windows or from vim
+" set paste
+
+" Visual selection automatically copied to the clipboard       
+" set go+=a               
+
 
 " utf-8!
-set encoding=utf-8 fileencoding=utf-8
+" set encoding=utf-8 fileencoding=utf-8
 
 " make searching easy, and case insensitive:
 set ignorecase smartcase incsearch hlsearch
