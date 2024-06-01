@@ -3,7 +3,7 @@
 " very good reference config
 "https://github.com/keithn/vsvimguide
 
-" Don't try to be vi compatible
+" don't try to be vi compatible
 " set nocompatible
 
 " turn on syntax highlighting
@@ -20,10 +20,10 @@ set softtabstop=4 shiftwidth=4 expandtab autoindent
 set clipboard=unnamed
 " set clipboard+=unnamedplus
 
-" Paste from a windows or from vim
+" paste from a windows or from vim
 " set paste
 
-" Visual selection automatically copied to the clipboard       
+" visual selection automatically copied to the clipboard       
 " set go+=a               
 
 
@@ -42,16 +42,16 @@ set ignorecase smartcase incsearch hlsearch
 :nnoremap <c-l> <c-w>l
 :nnoremap <c-h> <c-w>h
 
-"居中显示查找结果
+"show the searched results in the middle of the screen
 :nnoremap n nzz
 :nnoremap N Nzz
 :nnoremap * *zz
 :nnoremap # #zz
 
-"</span>去定义
+"go to definition
 :nnoremap gd <C-]>zz
 
-"gq->== 整理代码格式
+"gq->== Format codes
 :nnoremap gq ==
 :vnoremap gq ==
 
@@ -75,30 +75,30 @@ nnoremap <leader>cd :cd %:h<CR>
 " but only change the path for the current window
 " nnoremap <leader>cd :lcd %:h<CR>
 
-" Open files located in the same dir in with the current file is edited
+" open files located in the same dir in with the current file is edited
 " nnoremap <leader>ew :e <C-R>=expand("%:.:h") . "/"<CR>
 
-"<CR> => Enter 的意思
+"<CR> => Enter 
 
 "first example
-"nnoremap <Leader>a :echo "Hello world"<CR>
+"nnoremap <leader>a :echo "Hello world"<CR>
 
 "editor.action.rename
-"使用 Refactor 功能
-nmap <Leader>rv :vsc Refactor.Rename<CR>
+"Use the VS Refactor function
+nmap <leader>rv :vsc Refactor.Rename<CR>
 
-"大範圍搜尋
+"search in all files
 "workbench.action.findInFiles
-nmap <Leader>qq :vsc Edit.FindinFiles<CR>
+nmap <leader>gs :vsc Edit.FindinFiles<CR>
 
-"目前文件搜尋
+"search in the current file
 "actions.find
-nmap <Leader>ss :vsc Edit.Find<CR>
+nmap <leader>cs :vsc Edit.Find<CR>
 
-"選取的時候區域找
-vmap <Leader>ss :vsc Edit.Find<CR>
+"search in the selected area
+vmap <leader>cs :vsc Edit.Find<CR>
 
-"複製相對路徑
+"Copy the relative path
 "workbench.action.files.copyPathOfActiveFile
 
 "
@@ -110,54 +110,54 @@ vmap <Leader>ss :vsc Edit.Find<CR>
 
 "like vscode command
 "workbench.action.showCommands
-nmap <Leader>xm :vsc View.CommandWindow<CR>
+nmap <leader>xm :vsc View.CommandWindow<CR>
 
-"切換註解
+"swith comments
 "editor.action.commentLine
-nmap <Leader>ci :vsc Edit.ToggleComment<CR>
-vmap <Leader>ci :vsc Edit.ToggleComment<CR>
+nmap <leader>ci :vsc Edit.ToggleComment<CR>
+vmap <leader>ci :vsc Edit.ToggleComment<CR>
 
-"擴展選取
+"extend the selected area
 "editor.action.smartSelect.expand
-nmap <Leader>xx :vsc Edit.ExpandSelection<CR>
-vmap <Leader>xx :vsc Edit.ExpandSelection<CR>
+nmap <leader>xx :vsc Edit.ExpandSelection<CR>
+vmap <leader>xx :vsc Edit.ExpandSelection<CR>
 
-"反擴展選取
+"shrink the selected area
 "editor.action.smartSelect.shrink
-nmap <Leader>zz :vsc Edit.ContractSelection<CR>
-vmap <Leader>zz :vsc Edit.ContractSelection<CR>
+nmap <leader>zz :vsc Edit.ContractSelection<CR>
+vmap <leader>zz :vsc Edit.ContractSelection<CR>
 
-"最近開啟的檔案
+"open the recent files
 "workbench.action.openRecent
-nmap <Leader>zz :vsc Edit.GoToRecentFile<CR>
+nmap <leader>zz :vsc Edit.GoToRecentFile<CR>
 
 
-"開窗到右側 ctrl + w w 切換窗
+"open new windows in the right, and ctrl + w w to switch window
 ":vsplit
 "workbench.action.splitEditorRight
 
 "split
-nmap <Leader>x1 :vsplit <CR>
+nmap <leader>x1 :vsplit <CR>
 
 "close
-nmap <Leader>x0 :q <CR>
+nmap <leader>x0 :q <CR>
 
 
-"切換到方案總管
-nmap ,e :vsc View.SolutionExplorer<CR>
+"go to the solution explorer
+nmap <leader>se :vsc View.SolutionExplorer<CR>
 
-"ctrl + f6
-"切回 editor
+"open the folder in the solution explorer
+"nmap <leader>of :vsc ProjectandSolutionContextMenus.Project.OpenFolderinFileExplorer<CR>
+
+"ctrl + f6 or Escape
+"go back to editor
+
 
 "gh
-map <Leader>gh :vsc Edit.QuickInfo<CR>
+map <leader>gh :vsc Edit.QuickInfo<CR>
 
-"在方案總管開啟資料夾
-"nmap ,of :vsc ProjectandSolutionContextMenus.Project.OpenFolderinFileExplorer<CR>
-
-
-"gb 設定相同字選擇功能
-map <Leader>gb :vsc Edit.InsertNextMatchingCaret<CR>
+"gb, try to insert the next matching caret
+map <leader>gb :vsc Edit.InsertNextMatchingCaret<CR>
 
 "https://github.com/VsVim/VsVim/issues/1474
 " Surround simulating bindings
@@ -200,85 +200,85 @@ vnoremap St c<lt>div><CR><C-r>"<Esc>`<lt>lcw
 
 
 " template
-map <LEADER>. <ESC> /<++><CR>:nohlsearch<CR>c4l
+map <leader>. <ESC> /<++><CR>:nohlsearch<CR>c4l
 
 " add var x = 
-map <LEADER>vx ^ivar x = <ESC> bbciw
+map <leader>vx ^ivar x = <ESC> bbciw
 
 "
-map <LEADER>gp ^ivar x = new YourObject(); var t = x.GetType(); foreach (var prop in t.GetProperties()) Console.WriteLine( $"x.{prop.Name} = " ); <ESC>
+map <leader>gp ^ivar x = new YourObject(); var t = x.GetType(); foreach (var prop in t.GetProperties()) Console.WriteLine( $"x.{prop.Name} = " ); <ESC>
 
 "Json To Chsarp
-map <LEADER>c2j :vsc Edit.PasteJSONAsClasses<CR>
+map <leader>c2j :vsc Edit.PasteJSONAsClasses<CR>
 
 "Add New Class
-map <Leader>nc :vsc Project.AddClass<CR>
+map <leader>nc :vsc Project.AddClass<CR>
 
 "SurroundWith
-map <Leader>sr :vsc Edit.SurroundWith<CR>
+map <leader>sr :vsc Edit.SurroundWith<CR>
 
 "ListMembers
-map <Leader>lm :vsc ListMembers<CR>
+map <leader>lm :vsc ListMembers<CR>
 
 "so
-nmap <Leader>so :so ~/_vsvimrc<CR>
+nmap <leader>so :so ~/_vsvimrc<CR>
 
 "to string
-"nmap <Leader>2s viwxistring<Esc>
+"nmap <leader>2s viwxistring<Esc>
 
 "to string use extension
-nmap <Leader>2s viw:vsc Tools.ToString<CR>
+nmap <leader>2s viw:vsc Tools.ToString<CR>
 
 "to int use extension
-nmap <Leader>2i viw:vsc Tools.ToInt<CR>
+nmap <leader>2i viw:vsc Tools.ToInt<CR>
 
 "to bool
-"nmap <Leader>2b viwxibool<Esc>
+"nmap <leader>2b viwxibool<Esc>
 
 "to bool use extension
-nmap <Leader>2b viw:vsc Tools.ToBool<CR>
+nmap <leader>2b viw:vsc Tools.ToBool<CR>
 
 "to float
-"nmap <Leader>2f viwxifloat<Esc>
+"nmap <leader>2f viwxifloat<Esc>
 
 "to decimal
-"nmap <Leader>2d viwxidecimal<Esc>
+"nmap <leader>2d viwxidecimal<Esc>
 
 "to var
-"nmap <Leader>2v viwxivar<Esc>
+"nmap <leader>2v viwxivar<Esc>
 
 "to var use extension
-nmap <Leader>2v viw:vsc Tools.ToVar<CR>
+nmap <leader>2v viw:vsc Tools.ToVar<CR>
 
 "to double use extension
-nmap <Leader>2f viw:vsc Tools.ToDouble<CR>
+nmap <leader>2f viw:vsc Tools.ToDouble<CR>
 
 "toogle true
-"nmap <Leader>tt viwxitrue<Esc>
+"nmap <leader>tt viwxitrue<Esc>
 
 "toogle false
-"nmap <Leader>tf viwxifalse<Esc>
+"nmap <leader>tf viwxifalse<Esc>
 
 "toogle use extension
-nmap <Leader>tt viw:vsc Tools.Toggle<CR>
+nmap <leader>tt viw:vsc Tools.Toggle<CR>
 
 "to mvc url
-nmap <Leader>2u vi'xi@Url.Content("<C-r>"")
+nmap <leader>2u vi'xi@Url.Content("<C-r>"")
 
-"go to file 必須先選中路徑
-map <Leader>gf :vsc Tools.GoToFile<CR>
+"go to file 
+map <leader>gf :vsc Tools.GoToFile<CR>
 
 "select current method
-map <Leader>vim :vsc Tools.SelectCurrentMethod<CR>
+map <leader>vim :vsc Tools.SelectCurrentMethod<CR>
 
 "Move To Method Begin
-map <Leader>gmb :vsc Tools.MoveToMethodBegin<CR>
+map <leader>gmb :vsc Tools.MoveToMethodBegin<CR>
 
 "Move To Method End
-map <Leader>gme :vsc Tools.MoveToMethodEnd<CR>
+map <leader>gme :vsc Tools.MoveToMethodEnd<CR>
 
 "postfix completion
-map <LEADER>. :vsc Tools.PostFixVar<CR>
+map <leader>. :vsc Tools.PostFixVar<CR>
 
-" 設定尖括號
+" set the < > 
 " set mps+=<:>
