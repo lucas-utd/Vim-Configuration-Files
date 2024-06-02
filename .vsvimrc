@@ -2,6 +2,7 @@
 
 " very good reference config
 "https://github.com/keithn/vsvimguide
+"https://github.com/vladkovalch/vsvimrc-config
 
 " don't try to be vi compatible
 " set nocompatible
@@ -59,10 +60,50 @@ set ignorecase smartcase incsearch hlsearch
 :nnoremap == :vsc Edit.FormatDocument<CR>
 
 nnoremap gc :vsc Edit.ToggleLineComment<CR>
-vnoremap gc :vsc Edit.ToggleComment<CR>
+vnoremap gc :vsc Edit.ToggleLineComment<CR>
 
 " Type %% in command-line mode to refer to the directory of the current file
 " cnoremap %% <C-R>=expand("%:h") . "/"<CR>
+
+
+"https://github.com/VsVim/VsVim/issues/1474
+" Surround simulating bindings
+nnoremap s) ciw(<C-r>")<Esc>
+nnoremap s] ciw[<C-r>"]<Esc>
+nnoremap s} ciw{<C-r>"}<Esc>
+nnoremap s> ciw<lt><C-r>"><Esc>
+nnoremap s" ciw"<C-r>""<Esc>
+nnoremap s' ciw'<C-r>"'<Esc>
+nnoremap sw) ciW(<C-r>")<Esc>
+nnoremap sw] ciW[<C-r>"]<Esc>
+nnoremap sw} ciW{<C-r>"}<Esc>
+nnoremap sw> ciW<lt><C-r>"><Esc>
+nnoremap sw" ciW"<C-r>""<Esc>
+nnoremap sw' ciW'<C-r>"'<Esc>
+
+" Surround delete bindings
+nnoremap ds) vi(dvhp
+nnoremap ds] vi[dvhp
+nnoremap ds} vi{dvhp
+nnoremap ds> vi<dvhp
+nnoremap ds" vi"dvhp
+nnoremap ds' vi'dvhp
+
+" Surround change bindings
+nnoremap cs"' vi"oh<Esc>msvi"l<Esc>cl'<Esc>`scl'<Esc>
+nnoremap cs'" vi'oh<Esc>msvi'l<Esc>cl"<Esc>`scl"<Esc>
+
+" Surround visual selected text
+vnoremap S" c"<C-r>""<Esc>
+vnoremap S' c"<C-r>"'<Esc>
+vnoremap S) c(<C-r>")<Esc>
+vnoremap S] c[<C-r>"]<Esc>
+vnoremap S} c{<C-r>"}<Esc>
+vnoremap S> c<lt><C-r>"><Esc>
+vnoremap S* c/*<C-r>"*/<Esc>
+"vnoremap St c<lt>div><CR><C-r>"<Esc>
+" Surround in div tag and edit tag
+vnoremap St c<lt>div><CR><C-r>"<Esc>`<lt>lcw
 
 
 "set leader
@@ -114,8 +155,8 @@ nmap <leader>xm :vsc View.CommandWindow<CR>
 
 "swith comments
 "editor.action.commentLine
-nmap <leader>ci :vsc Edit.ToggleComment<CR>
-vmap <leader>ci :vsc Edit.ToggleComment<CR>
+"nmap <leader>ci :vsc Edit.ToggleComment<CR>
+"vmap <leader>ci :vsc Edit.ToggleComment<CR>
 
 "extend the selected area
 "editor.action.smartSelect.expand
@@ -158,45 +199,6 @@ map <leader>gh :vsc Edit.QuickInfo<CR>
 
 "gb, try to insert the next matching caret
 map <leader>gb :vsc Edit.InsertNextMatchingCaret<CR>
-
-"https://github.com/VsVim/VsVim/issues/1474
-" Surround simulating bindings
-nnoremap s) ciw(<C-r>")<Esc>
-nnoremap s] ciw[<C-r>"]<Esc>
-nnoremap s} ciw{<C-r>"}<Esc>
-nnoremap s> ciw<lt><C-r>"><Esc>
-nnoremap s" ciw"<C-r>""<Esc>
-nnoremap s' ciw'<C-r>"'<Esc>
-nnoremap sw) ciW(<C-r>")<Esc>
-nnoremap sw] ciW[<C-r>"]<Esc>
-nnoremap sw} ciW{<C-r>"}<Esc>
-nnoremap sw> ciW<lt><C-r>"><Esc>
-nnoremap sw" ciW"<C-r>""<Esc>
-nnoremap sw' ciW'<C-r>"'<Esc>
-
-" Surround delete bindings
-nnoremap ds) vi(dvhp
-nnoremap ds] vi[dvhp
-nnoremap ds} vi{dvhp
-nnoremap ds> vi<dvhp
-nnoremap ds" vi"dvhp
-nnoremap ds' vi'dvhp
-
-" Surround change bindings
-nnoremap cs"' vi"oh<Esc>msvi"l<Esc>cl'<Esc>`scl'<Esc>
-nnoremap cs'" vi'oh<Esc>msvi'l<Esc>cl"<Esc>`scl"<Esc>
-
-" Surround visual selected text
-vnoremap S" c"<C-r>""<Esc>
-vnoremap S' c"<C-r>"'<Esc>
-vnoremap S) c(<C-r>")<Esc>
-vnoremap S] c[<C-r>"]<Esc>
-vnoremap S} c{<C-r>"}<Esc>
-vnoremap S> c<lt><C-r>"><Esc>
-vnoremap S* c/*<C-r>"*/<Esc>
-"vnoremap St c<lt>div><CR><C-r>"<Esc>
-" Surround in div tag and edit tag
-vnoremap St c<lt>div><CR><C-r>"<Esc>`<lt>lcw
 
 
 " template
