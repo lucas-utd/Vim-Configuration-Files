@@ -1,7 +1,7 @@
-" vsvimrc
+" .vsvimrc
 
 " more editor space
-" Enter Full Screen ( View -> Fullscreen or Shift-Alt-Enter )
+" Enter or Exit Full Screen ( View -> Fullscreen or Shift-Alt-Enter )
 " Turn off all toolbars. You will access all the functionality you need through the keyboard
 " Unpin all the side / bottom tool windows.
 " Turn off sidebar tabs (Window -> Show Sidebar Tabs, or ALT-W b)
@@ -308,6 +308,10 @@ noremap <leader>gs :vsc View.SolutionExplorer<CR>
 
 "ctrl + f6 or Escape
 "go back to editor
+
+"Right Arrow, extend the folder in the solution explorer
+"Left Arrow, shrink the folder in the solution explorer
+" * in number pad, extend everything in the solution explorer
 
 "Move To Method Begin
 noremap <leader>gmb :vsc Tools.MoveToMethodBegin<CR>
