@@ -314,10 +314,10 @@ noremap <leader>gs :vsc View.SolutionExplorer<CR>
 " * in number pad, extend everything in the solution explorer
 
 "Move To Method Begin
-noremap <leader>gmb :vsc Tools.MoveToMethodBegin<CR>
+" noremap <leader>gmb :vsc Tools.MoveToMethodBegin<CR>
 
 "Move To Method End
-noremap <leader>gme :vsc Tools.MoveToMethodEnd<CR>
+" noremap <leader>gme :vsc Tools.MoveToMethodEnd<CR>
 
 
 "open the folder in the solution explorer
