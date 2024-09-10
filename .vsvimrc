@@ -306,8 +306,11 @@ noremap <leader>gh :vsc Edit.QuickInfo<CR>
 " `<leader> + g(o) + s(olution)` - Go to the solution explorer
 noremap <leader>gs :vsc View.SolutionExplorer<CR>
 
-"ctrl + f6 or Escape
+"Ctrl + F6 or Escape
 "go back to editor
+
+"Shift + F7
+"toggles back and forth between XAML and Design views
 
 "Right Arrow, extend the folder in the solution explorer
 "Left Arrow, shrink the folder in the solution explorer
